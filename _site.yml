@@ -8,7 +8,9 @@ navbar:
     - icon: fa-envelope fa-lg
       href: mailto:<ml4418@ml4418@cumc.columbia.com>
     - icon: fa-github fa-lg
-      href: http://github.com/<YOUR_GH_NAME>/
+      href: http://github.com/<ml4418-uni>/
+    - icon: fa-facebook fa-lg
+      href: https://www.facebook.com/<mengyuan li>
 output:
   html_document:
     theme: cerulean
