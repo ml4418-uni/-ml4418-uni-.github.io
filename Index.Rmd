@@ -7,7 +7,7 @@ output:
     theme: cerulean
 ---
 
-# This is my website
+# This is Morphy's website
 
 
 # <img src="image.jpg" style="width:75%">
