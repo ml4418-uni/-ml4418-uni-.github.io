@@ -2,50 +2,52 @@
 title: "probelm 2"
 author: "Mengyuan Li"
 date: "10/29/2019"
-output: html_document
+output:  
+  flexdashboard::flex_dashboard:
+    orientation: columns
 ---
 
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r}
+knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 library(viridis)
 library(p8105.datasets)
 library(plotly)
+library(flexdashboard)
+
+data("instacart")
+force(instacart)
 ```
 
-```{r}
-instacart
-```
+Column
+-----------------------------------------------------------------------
 
-```{r}
+```{r echo =FALSE}
 instacart %>%
-  top_n(20) %>% 
+  sample_n(500) %>% 
+  group_by(aisle) %>%
   plot_ly(
-    x = ~aisle, y = ~order_hour_of_day, type = "scatter", mode = "markers",
-    color = ~aisle, alpha = 0.5)
+    x = ~order_number, y = ~order_hour_of_day, type = "scatter", mode = "markers", color = ~aisle, alpha = 0.5)
 ```
 
-```{r}
-common_aisles = 
-  instacart %>%
-  count(aisle) %>%
+Column
+-----------------------------------------------------------------------
+
+```{r echo =FALSE}
+instacart %>%
+  group_by(aisle) %>%
+  summarise(count = n()) %>%
   top_n(8) %>% 
-  select(aisle) %>%
-  plot_ly(x = ~aisle, y = ~n, color = ~aisle, type = "bar")
-common_aisles
+  plot_ly(x = ~aisle, y = ~count, color = ~aisle, type = "bar")
+
 ```
 
-```{r}
-most_popular_products =
-  instacart %>%
-  group_by(product_name) %>%
-  count() %>%
-  top_n(10) %>%
-  plot_ly(y = ~n, color = ~product_name, type = "box", colors = "Set1")
-most_popular_products
+
+```{r echo =FALSE}
+instacart %>% 
+  sample_n(500) %>%
+  group_by(aisle) %>%
+  plot_ly(y = ~order_number, color = ~aisle, type = "box", colors = "Set1")
 ```

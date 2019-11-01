@@ -2,6 +2,7 @@ name: "website"
 output_dir: "."
 navbar:
   title: "Home"
+  href: index.html
   right:
     - text: "About"
       href: about.html
@@ -12,7 +13,7 @@ navbar:
     - icon: fa-facebook fa-lg
       href: https://www.facebook.com/morphy
     - text: "Problem 2"
-      href: problem2.Rmd
+      href: problem2.html
 output:
   html_document:
     theme: cerulean
