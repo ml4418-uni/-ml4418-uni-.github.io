@@ -1,0 +1,51 @@
+---
+title: "probelm 2"
+author: "Mengyuan Li"
+date: "10/29/2019"
+output: html_document
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(viridis)
+library(p8105.datasets)
+library(plotly)
+```
+
+```{r}
+instacart
+```
+
+```{r}
+instacart %>%
+  top_n(20) %>% 
+  plot_ly(
+    x = ~aisle, y = ~order_hour_of_day, type = "scatter", mode = "markers",
+    color = ~aisle, alpha = 0.5)
+```
+
+```{r}
+common_aisles = 
+  instacart %>%
+  count(aisle) %>%
+  top_n(8) %>% 
+  select(aisle) %>%
+  plot_ly(x = ~aisle, y = ~n, color = ~aisle, type = "bar")
+common_aisles
+```
+
+```{r}
+most_popular_products =
+  instacart %>%
+  group_by(product_name) %>%
+  count() %>%
+  top_n(10) %>%
+  plot_ly(y = ~n, color = ~product_name, type = "box", colors = "Set1")
+most_popular_products
+```

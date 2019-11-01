@@ -8,9 +8,11 @@ navbar:
     - icon: fa-envelope fa-lg
       href: mailto:<ml4418@ml4418@cumc.columbia.com>
     - icon: fa-github fa-lg
-      href: http://github.com/<ml4418-uni>/
+      href: http://github.com/ml4418-uni/
     - icon: fa-facebook fa-lg
-      href: https://www.facebook.com/<mengyuan li>
+      href: https://www.facebook.com/morphy
+    - text: "Problem 2"
+      href: problem2.Rmd
 output:
   html_document:
     theme: cerulean
